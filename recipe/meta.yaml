@@ -1,5 +1,5 @@
 {% set name = "h3spark" %}
-{% set version = "0.0.2" %}
+{% set version = "0.0.4" %}
 {% set python_min = "3.9" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/h3spark-{{ version }}.tar.gz
-  sha256: f33e638c92a4830d8471e82a5062ba0809ba73d6a0c39be35bcd3e2856444470
+  sha256: ccae41806021fe7e7e1d7c3e8d767f22e36f88fced52aaa7922985224596537b
 
 build:
   noarch: python
