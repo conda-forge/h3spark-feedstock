@@ -1,14 +1,14 @@
 {% set name = "h3spark" %}
-{% set version = "0.1.6" %}
-{% set python_min = "3.9" %}
+{% set version = "0.4.1" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/h3spark-{{ version }}.tar.gz
-  sha256: e7d1f8852d966dd744168d8b562392f9dac4808d666404afd1ffadbb202bc566
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/h3spark-{{ version }}.tar.gz
+  sha256: 9b3ec139faa6628de26b9e1e386e93cf923a63869d07afca5c3b45ef1b60500e
 
 build:
   noarch: python
@@ -22,12 +22,19 @@ requirements:
     - pip
   run:
     - python >={{ python_min }}
-    - h3-py >=4.1,<4.2
-    - pyspark >=3.0,<4.0
+    - h3-py >=4.1
+    - pyspark >=3.5,<5
+    # pyarrow 26 needs numpy 2, which pyspark 3.5 doesn't support
+    - pyarrow <26
+    # pyspark 3.5 imports distutils, removed in Python 3.12
+    - setuptools
 
 test:
   imports:
     - h3spark
+    - h3spark.native
+    - h3spark.udf
+    - h3spark.hex
   commands:
     - pip check
   requires:
@@ -39,7 +46,7 @@ about:
   home: https://github.com/JosephChotard/h3spark
   license_file: LICENSE
   license: MIT
-  summary: Lightweight pyspark wrapper for h3-py
+  summary: "H3 for PySpark: Uber's H3 hexagonal geospatial index as fast native Spark SQL functions"
 
 extra:
   recipe-maintainers:
