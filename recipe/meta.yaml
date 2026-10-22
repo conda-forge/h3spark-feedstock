@@ -1,5 +1,5 @@
 {% set name = "h3spark" %}
-{% set version = "0.4.1" %}
+{% set version = "0.5.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/h3spark-{{ version }}.tar.gz
-  sha256: 9b3ec139faa6628de26b9e1e386e93cf923a63869d07afca5c3b45ef1b60500e
+  sha256: c186f227c252d0f6641399b04f872dbb426a85eb24356b529745e61438c4b341
 
 build:
   noarch: python
