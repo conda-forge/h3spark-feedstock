@@ -7,7 +7,7 @@ Home: https://github.com/JosephChotard/h3spark
 
 Package license: MIT
 
-Summary: Lightweight pyspark wrapper for h3-py
+Summary: H3 for PySpark: Uber's H3 hexagonal geospatial index as fast native Spark SQL functions
 
 Development: https://github.com/JosephChotard/h3spark
 
